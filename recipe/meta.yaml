@@ -29,15 +29,16 @@ requirements:
     - colorama  # [win]
 
 test:
-  test_files:
+  files:
     - example_pkg/**
   imports:
     - spin
   commands:
     - pip check
-    - cd example_pkg && spin build
+    - cd example_pkg && python -m spin build
   requires:
     - pip
+    - meson
 
 about:
   home: https://github.com/scientific-python/spin
