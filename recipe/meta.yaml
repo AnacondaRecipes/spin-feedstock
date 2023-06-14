@@ -39,6 +39,8 @@ test:
   requires:
     - pip
     - meson
+    - {{ compiler('cxx') }}  # [linux]
+    - {{ compiler('c') }}  # [linux]
 
 about:
   home: https://github.com/scientific-python/spin
