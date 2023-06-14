@@ -41,9 +41,16 @@ test:
 
 about:
   home: https://github.com/scientific-python/spin
+  dev_url: https://github.com/scientific-python/spin
+  doc_url: https://github.com/scientific-python/spin/blob/main/README.md
   summary: Developer tool for scientific Python libraries
+  description: |
+    Formarly known as `devpy`, `spin` aims to provide a simple interface 
+    for common development tasks. It comes with a few common build commands 
+    out the box, but can easily be customized per project.
   license: BSD-3-Clause
   license_file: LICENSE
+  license_family: BSD
 
 extra:
   recipe-maintainers:
