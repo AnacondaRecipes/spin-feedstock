@@ -10,27 +10,23 @@ source:
   sha256: 3f20f1d19e0153832804891eec3f3691effd2d1def95bdd6c0c4b97cb41a0a1f
 
 build:
-  script: {{ PYTHON }} -m pip install . -vv
+  script: {{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation
   number: 0
-  noarch: python
-  # You NEED to include the platform in the build string to avoid hash collisions
-  # https://github.com/conda-forge/conda-forge.github.io/pull/1839#discussion_r1008679066
-  string: unix_pyh{{ PKG_HASH }}_{{ PKG_BUILDNUM }}  # [unix]
-  string: win_pyh{{ PKG_HASH }}_{{ PKG_BUILDNUM }}  # [win]
+  skip: true  # [py<37]
   entry_points:
     - spin = spin.__main__:main
 
 requirements:
   host:
-    - python >=3.7
+    - python
     - pip
+    - setuptools
+    - wheel
   run:
-    - python >=3.7
+    - python
     - click
     - toml
     - colorama  # [win]
-    - __unix  # [unix]
-    - __win   # [win]
 
 test:
   imports:
