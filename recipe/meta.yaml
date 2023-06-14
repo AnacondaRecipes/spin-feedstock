@@ -29,12 +29,13 @@ requirements:
     - colorama  # [win]
 
 test:
+  test_files:
+    - example_pkg/**
   imports:
     - spin
   commands:
     - pip check
-    # Error: cannot find [pyproject.toml]
-    # - spin --help
+    - cd example_pkg && spin build
   requires:
     - pip
 
