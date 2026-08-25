@@ -1,5 +1,5 @@
 {% set name = "spin" %}
-{% set version = "0.15" %}
+{% set version = "0.18" %}
 
 package:
   name: {{ name|lower }}
@@ -7,12 +7,12 @@ package:
 
 source:
   url: https://pypi.org/packages/source/{{ name[0] }}/{{ name }}/spin-{{ version }}.tar.gz
-  sha256: c53824679cef67b87183962e38028fb2ed59f33e7dfdc8b96be684bc8698e238
+  sha256: 1c8e8d1d67f20f9bfce0bbe43cff4131d728de4d1905d90ee3d8b29b17320006
 
 build:
   script: {{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation
   number: 0
-  skip: true  # [py<39]
+  skip: true  # [py<310]
   entry_points:
     - spin = spin.__main__:main
 
@@ -24,7 +24,7 @@ requirements:
     - wheel
   run:
     - python
-    - click >=8,<8.3
+    - click >=8,!=8.3.0,<8.4
     - tomli  # [py<311]
     - importlib_metadata >=7
     - colorama  # [win]
